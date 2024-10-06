@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+:root {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scrollbar-width: none;
+    border: none;
+}
+
+
+
+/* lxgw-wenkai-tc-latin-400-normal */
+@font-face {
+    font-family: 'LXGW WenKai TC';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/lxgw-wenkai-tc@latest/latin-400-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+body {
+    background-color: #272936;
+    color: aliceblue;
+    font-family: 'LXGW WenKai TC', cursive;
+    font-size: large !important;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+
+header {
+    background-color: #272936ec;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    height: 5vw;
+    min-height: 3.5em;
+    z-index: 1000;
+    backdrop-filter: blur(1px);
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+    padding: 0 4%;
+    width: 100%;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    height: 100%;
+
+}
+
+#Home {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    height: 100%;
+}
+
+
+img[alt="logo"] {
+    width: 2.3em;
+    border-radius: 50%;
+    animation: rotation 3s linear infinite;
+    display: none;
+}
+
+
+#menus-container {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#sidebar-active,
+#open-sidebar,
+#close-sidebar {
+    display: none;
+    width: 2.3em;
+    height: 2.3em;
+
+    &:hover {
+        border-radius: 50%;
+        background-color: #717585db;
+    }
+}
+
+label>svg {
+    height: 1.8em;
+    width: 1.8em;
+}
+
+#menus {
+    display: flex;
+    height: 100%;
+}
+
+#menus a {
+    padding: 0 1.5vw;
+    color: #75adf8;
+
+    &:hover {
+        background-color: #2954ef;
+    }
+}
+
+#about {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    justify-content: stretch;
+    height: 200px;
+    background-color: #272936;
+    text-align: center;
+}
+
+#about>* {
+    margin: 10px 2em;
+}
+
+.introduction {
+    justify-self: center;
+    display: grid;
+    width: 75%;
+}
+
+
+li {
+    text-align: center;
+    transition: opacity 1s;
+    
+    &::marker {
+        content: none;
+    }
+}
+
+
+
+.connect {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    gap: 20px;
+}
+
+.connect a svg {
+    height: 1.35em;
+}
+
+
+
+
+.content {
+    padding: 20px;
+    background-color: #363849;
+    display: grid;
+    grid-template-columns: auto 360px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.content>div {
+    overflow-wrap: anywhere;
+    border: solid 1px #db0a0a;
+}
+
+.posts {
+    display: grid;
+    padding: 0 5px;
+}
+
+.posts>* {
+    margin: 0 10px;
+    margin-bottom: 10px;
+}
+
+.posts>p {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.posts a:not(.all) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "title title"
+        "tags update";
+
+    border-radius: 8px;
+    padding: 5px 10px 10px 10px;
+    text-decoration: none;
+    word-break: break-all;
+    color: aliceblue;
+    background: linear-gradient(to right, #3d2088, #40306a);
+    transition: all .3s ease-in-out;
+
+    &:hover,
+    &:active {
+        background: #730d79;
+    }
+}
+
+a.all {
+    justify-self: center;
+    display: inline-flex;
+    color: #75adf8;
+    width: max-content;
+    text-decoration: none;
+
+    &:hover .readmore-animation>path {
+        opacity: 1;
+    }
+}
+
+a.all>div {
+    position: relative;
+    margin-left: 8px;
+}
+
+.readmore-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(6.5px);
+}
+
+.readmore-animation path {
+    opacity: 0;
+    stroke: rgb(128, 159, 255);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.title {
+    overflow-wrap: break-word;
+    grid-area: title;
+    margin-bottom: 16px;
+    font: normal bold 1.3em 'LXGW WenKai TC';
+}
+
+.tags {
+    grid-area: tags;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 4px;
+    font-size: 0.7em;
+}
+
+.tags>span {
+    background-color: #00ffe196;
+    color: #222222;
+    border-radius: 5px;
+    padding: 0 4px;
+    font-weight: bolder;
+}
+
+.update {
+    text-align: right;
+    grid-area: update;
+    font-size: 0.7em;
+    align-self: self-end;
+}
+
+
+:is(footer, p, .connect) a {
+    color: #0088ff;
+    text-decoration: none;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    font-size: 13px;
+}
+
+footer p {
+    text-align: center;
+}
+
+
+
+@media (max-width: 800px) {
+    body {
+        font-size: 1em !important;
+    }
+
+    nav {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    #Home {
+        font-size: 1em;
+    }
+
+    #Home span {
+        display: none;
+    }
+
+    img[alt="logo"] {
+        display: block;
+    }
+
+    #menus a {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    #menus {
+        display: none;
+    }
+
+    label {
+        justify-content: center;
+        align-items: center;
+    }
+
+    #open-sidebar {
+        display: flex;
+    }
+
+    #sidebar-active:checked~#menus {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        background-color: #3e4151ec;
+        border-radius: 10px;
+        border: 2px solid #455468;
+        height: 22vh;
+        min-height: 120px;
+        width: 28%;
+        max-width: 160px;
+        top: 3.5em;
+        right: 4%;
+        z-index: 99;
+
+        & :first-child {
+            border-radius: 10px 10px 0 0;
+        }
+
+        & :last-child {
+            border-radius: 0 0 10px 10px;
+        }
+    }
+
+    #sidebar-active:checked~#close-sidebar {
+        display: flex;
+    }
+
+    #sidebar-active:checked~#open-sidebar {
+        display: none;
+    }
+
+    #sidebar-active:checked~#overlay {
+        height: 100vh;
+        width: 100vw;
+        top: 3.5em;
+        left: 0;
+        position: fixed;
+        z-index: 98;
+    }
+
+    .content {
+        grid-template-columns: none;
+        padding: 10px;
+    }
+
+    .posts {
+        padding: 0;
+    }
+}

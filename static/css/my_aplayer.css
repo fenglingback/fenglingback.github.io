@@ -1,0 +1,94 @@
+/* lxgw-wenkai-tc-latin-400-normal */
+@font-face {
+    font-family: 'LXGW WenKai TC';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/lxgw-wenkai-tc@latest/latin-400-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+#aplayer {
+    height: 100%;
+    margin: 0 !important;
+    min-width: 120px;
+    background-color: transparent;
+    box-shadow: none !important;
+    font-family: 'LXGW WenKai TC', cursive;
+}
+
+.aplayer-body {
+    height: 100%;
+}
+
+.aplayer-info {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+}
+
+.aplayer-music {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.aplayer-title {
+    font-size: 0.8em !important;
+}
+
+.aplayer-author {
+    color: aliceblue !important;
+    font-size: 0.8em !important;
+}
+
+
+.aplayer-lrc::before,
+.aplayer-lrc::after {
+    background: none !important;
+}
+
+.aplayer-lrc {
+    display: none !important;
+    cursor: pointer;
+}
+
+.aplayer-lrc-contents p:not(.aplayer-lrc-current) {
+    color: #7c7c7c !important;
+}
+
+.aplayer-lrc-current {
+    color: rgb(3, 181, 121) !important;
+}
+
+.aplayer svg path {
+    fill: none !important;
+}
+
+.controlbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 26px;
+    margin-top: -0.6em;
+}
+
+.controlbar div svg {
+    color: aquamarine;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+@media (max-width: 767px) {
+    .aplayer-lrc {
+        margin: -14px !important;
+    }
+
+}
