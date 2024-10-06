@@ -5,8 +5,8 @@ const ap = new APlayer({
     audio: {
         name: '最长的电影',
         artist: '张天赋',
-        url: 'https://cxflmusic.serv00.net/media/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1.mp3',
-        lrc: 'https://cxflblog.serv00.net/music/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1.lrc'
+        url: 'https://raw.githubusercontent.com/fenglingback/My-Music/main/songs/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1.mp3',
+        lrc: 'https://raw.githubusercontent.com/fenglingback/My-Music/main/lrc/%E6%9C%80%E9%95%BF%E7%9A%84%E7%94%B5%E5%BD%B1.lrc'
     }
 });
 
