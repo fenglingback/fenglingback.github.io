@@ -1,3 +1,23 @@
+function randomBrightColor() {
+    // 生成三个亮度较高的部分
+    const brightParts = [
+        Math.floor(Math.random() * 192) + 64, // 生成 64 到 255 的值
+        Math.floor(Math.random() * 192) + 64, // 生成 64 到 255 的值
+        Math.floor(Math.random() * 192) + 64  // 生成 64 到 255 的值
+    ];
+
+    // 确保至少有一个部分接近最大值
+    if (Math.random() < 0.5) {
+        brightParts[Math.floor(Math.random() * 3)] = Math.floor(Math.random() * 64) + 192; // 生成 192 到 255 的值
+    }
+
+    // 将各个部分转换为十六进制并拼接成颜色字符串
+    return '#' + brightParts.map(part => {
+        let hex = part.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+    }).join('');
+}
+
 window.addEventListener('load', function () {
     const introductions = [
         'Hi, 我是cxfl 👋',
@@ -32,6 +52,7 @@ window.addEventListener('load', function () {
             element.style.opacity = 0;
 
             setTimeout(() => {
+                element.style.color = randomBrightColor();
                 element.textContent = content;
                 element.style.opacity = 1;
             }, 600);
