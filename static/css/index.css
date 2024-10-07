@@ -143,10 +143,10 @@ label>svg {
 
 #about {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr auto auto;
     align-items: center;
-    justify-content: stretch;
-    height: 200px;
+    /* justify-content: center; */
+    height: max-content;
     background-color: #272936;
     text-align: center;
 }
@@ -155,30 +155,25 @@ label>svg {
     margin: 10px 2em;
 }
 
-.introduction {
-    justify-self: center;
+#about .introduction {
     display: grid;
-    width: 80%;
+    margin-bottom: 20px;
+}
+
+.introduction li::marker {
+    content: none;
 }
 
 
-li {
-    text-align: center;
+.dinglv {
     transition: opacity 1s;
-    
-    &::marker {
-        content: none;
-    }
 }
-
 
 
 .connect {
-    width: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
-    justify-self: center;
     gap: 20px;
 }
 

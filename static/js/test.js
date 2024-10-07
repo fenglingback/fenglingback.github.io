@@ -1,20 +1,22 @@
 window.addEventListener('load', function () {
-    const profile = [
-        ['Hi, 我是cxfl 👋', '这里存放了我的all log、已验证与正在验证的个人定律，还有各种天马行空的idea ☝🤓', '⚡ 欢迎来访 ⚡'],
-        ['任何事物，只有在它的发展初期是好的，包括人。']
+    const introductions = [
+        'Hi, 我是cxfl 👋',
+        '这里存放了我的all log、已验证与正在验证的个人定律，还有各种天马行空的idea ☝🤓',
+        '⚡ 欢迎来访 ⚡'
+    ];
+    const dinglvs = [
+        '任何事物，只有在它的发展初期是好的，包括人。'
     ];
 
     const ul = document.querySelector('.introduction');
+    const dl = document.querySelector('.dinglv');
 
-    const len = Math.max(...profile.map(item => item.length));
-
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < introductions.length; i++) {
         const li = document.createElement('li');
+        li.textContent = introductions[i];
         ul.appendChild(li);
     };
 
-
-    const lis = Array.from(ul.querySelectorAll('li'));
     const delay = 5000;
 
     let timeoutIds = [];
@@ -25,13 +27,13 @@ window.addEventListener('load', function () {
         timeoutIds = [];
     });
 
-    function setLiContent(li, content, delayTime) {
+    function setLiContent(element, content, delayTime) {
         const id = setTimeout(() => {
-            li.style.opacity = 0;
+            element.style.opacity = 0;
 
             setTimeout(() => {
-                li.textContent = content || '';
-                li.style.opacity = 1;
+                element.textContent = content;
+                element.style.opacity = 1;
             }, 600);
         }, delayTime);
 
@@ -39,14 +41,14 @@ window.addEventListener('load', function () {
     }
 
     function loop() {
-        profile.forEach((item, index) => {
-            lis.forEach((li, i) => {
-                setLiContent(li, item[i], index * delay);
-            });
+        dinglvs.forEach((item, index) => {
+
+            setLiContent(dl, item, index * delay);
+
         });
 
         // 重新启动循环
-        setTimeout(loop, profile.length * delay);
+        setTimeout(loop, dinglvs.length * delay);
     }
 
     loop();
