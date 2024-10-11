@@ -68,7 +68,7 @@ screen -d -m npm run start
 ## 配置重启任务
 
 > [!IMPORTANT]  
-> 因为Serv00总是会重启，所以需要配置自动任务，在重启机器时启动服务
+> 因为Serv00会不定时重启，所以需要配置自动任务，在重启机器时启动服务
 
 1. 面板中导航到 `Cron jobs` → `Add cron job`
 
