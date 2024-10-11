@@ -25,7 +25,9 @@ window.addEventListener('load', function () {
         '⚡ 欢迎来访 ⚡'
     ];
     const dinglvs = [
-        '任何事物，只有在它的发展初期是好的，包括人。'
+        '任何事物，只有在它的发展初期是好的，包括人。',
+        '真话很多时候都是难听的。',
+        '顺势而为的事情是最好做的。'
     ];
 
     const ul = document.querySelector('.introduction');
