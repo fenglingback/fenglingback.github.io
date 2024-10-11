@@ -77,6 +77,6 @@ screen -d -m npm run start
 3. 在 `Command` 中输入下面的命令，`comment` 可以随意写，点击 `Add`
 
 ```shell
-cd domains/你的子域/public_html/ && screen -d -m npm run start
+cd /home/你的用户名/domains/你的子域/public_html/ && screen -d -m npm run start
 ```
 
