@@ -58,7 +58,7 @@ screen -d -m npm run start
 ```
 
 > [!IMPORTANT]  
-> 关闭服务：`screen -X -S <会话ID> quit`  
+> 关闭服务：`pkill node`  
 > 查看所有会话ID：`screen -ls`  
 > 进入某个会话：`screen -r <会话ID>`  
 > 退出会话：按下`Ctrl` + `A`后松开，再按下 `D`  
@@ -70,13 +70,23 @@ screen -d -m npm run start
 > [!IMPORTANT]  
 > 因为Serv00会不定时重启，所以需要配置自动任务，在重启机器时启动服务
 
-1. 面板中导航到 `Cron jobs` → `Add cron job`
+1. 重新登录ssh后执行以下命令，新建重启服务的shell脚本文件
 
-2. 依次选择：Specify time → `After reboot`、Form type → `Advanced`
+```bash
+cat > 脚本文件名.sh << EOF
+#!/bin/bash
 
-3. 在 `Command` 中输入下面的命令，`comment` 可以随意写，点击 `Add`
+sshpass -p '密码' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -tt 用户名@服务器地址 "cd /home/用户名/domains/你的子域/public_html/ && screen -d -m npm run start && exit" &
+EOF
+```
+
+2. 回到面板，导航到 `Cron jobs` → `Add cron job`
+
+3. 依次选择：Specify time → `After reboot`、Form type → `Advanced`
+
+4. 在 `Command` 中输入下面的命令，`comment` 可以随意写，点击 `Add`
 
 ```shell
-cd /home/你的用户名/domains/你的子域/public_html/ && screen -d -m npm run start
+/home/用户名/脚本文件名.sh >/dev/null 2>&1
 ```
 
