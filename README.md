@@ -1,2 +1,4 @@
 # fenglingback.github.io
-我的静态博客
+
+> [!TIP]
+> 我未来的静态博客（还在建设中...）
