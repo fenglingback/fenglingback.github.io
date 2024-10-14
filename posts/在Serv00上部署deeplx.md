@@ -90,3 +90,7 @@ EOF
 /home/用户名/脚本文件名.sh >/dev/null 2>&1
 ```
 
+## temp_record
+
+cxfldlx screenid：`19384`
+
