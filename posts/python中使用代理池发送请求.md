@@ -72,7 +72,9 @@ https://proxyscrape.com/free-proxy-list
 
 ## 4. 验证代理
 
-请求https://httpbin.org/ip，查看返回响应的IP是否与代理IP一致。
+- https://proxy-seller.com/zh/tools/proxy-checker/，检查代理是否可用
+
+- 请求https://httpbin.org/ip，查看返回响应的IP是否与代理IP一致。
 
 
 ## 5. 代码
