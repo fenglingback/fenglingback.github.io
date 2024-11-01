@@ -69,6 +69,8 @@ https://proxyscrape.com/free-proxy-list
 
 [lalifeier/proxy-scraper](https://github.com/lalifeier/proxy-scraper)
 
+https://y.shironekosan.cn/?post=234
+
 
 ## 4. 验证代理
 
